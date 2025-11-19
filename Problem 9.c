@@ -1,3 +1,6 @@
+//Declare an Array, take Size, Elements dynamically. 
+Delete an element from the last position. [Take the position dynamically] 
+
 #include <stdio.h>
 
 int main() {
