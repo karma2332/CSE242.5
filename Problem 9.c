@@ -1,45 +1,45 @@
-//Declare an Array, take Size, Elements dynamically. 
-   //Delete an element from the last position. [Take the position dynamically]
 #include <stdio.h>
 
 int main() {
-    int size, pos;
+    int size, elements, pos;
 
-    // 1. Take size of the array
-    printf("Enter size of array: ");
+    // 1. Take size of array
+    printf("Enter the size of the array: ");
     scanf("%d", &size);
 
     int arr[size];
 
-    // 2. Take array elements
-    printf("Enter %d elements:\n", size);
-    for (int i = 0; i < size; i++) {
+    // 2. Take how many elements you want to store
+    printf("How many elements you want to insert (<= %d)? ", size);
+    scanf("%d", &elements);
+
+    // 3. Take the elements
+    printf("Enter %d elements:\n", elements);
+    for (int i = 0; i < elements; i++) {
         scanf("%d", &arr[i]);
     }
 
-    // 3. Take delete position (human position)
-    printf("Enter position to delete (1 to %d): ", size);
+    // 4. Take the position to delete
+    printf("Enter the position to delete (only last position allowed): ");
     scanf("%d", &pos);
 
-    // Convert to index
-    pos--;
+    pos--; // convert human position → index
 
-    // 4. Delete from that position
-    if (pos < 0 || pos >= size) {
-        printf("Invalid position!\n");
+    // Check if pos is the last element
+    if (pos != elements - 1) {
+        printf("Error: You can delete only the LAST position (%d)\n", elements);
         return 0;
     }
 
-    // Shift elements left
-    for (int i = pos; i < size - 1; i++) {
-        arr[i] = arr[i + 1];
-    }
+    // 5. Show deleted element
+    printf("Deleted element: %d\n", arr[pos]);
 
-    size--; // reduce array size
+    // 6. Delete by reducing element count
+    elements--;
 
-    // 5. Print final array
+    // 7. Print updated array
     printf("Array after deletion:\n");
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < elements; i++) {
         printf("%d ", arr[i]);
     }
 
