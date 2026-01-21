@@ -19,7 +19,8 @@ node *createNode(int value) {
 /* Insert at a given position */
 node *insertAtPosition(node *first, int value, int pos) {
     node *newNode = createNode(value);
-
+    node *temp = first;
+    int i;
     /* Insert at beginning */
     if (pos == 1) {
         newNode->next = first;
@@ -28,8 +29,7 @@ node *insertAtPosition(node *first, int value, int pos) {
         return newNode;
     }
 
-    node *temp = first;
-    int i;
+   
 
     for (i = 1; i < pos - 1 && temp != NULL; i++) {
         temp = temp->next;
