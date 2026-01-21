@@ -21,6 +21,10 @@ node *insertAtPosition(node *first, int value, int pos) {
     node *newNode = createNode(value);
     node *temp = first;
     int i;
+    if (temp == NULL) {
+        printf("Invalid position\n");
+        return first;
+    }
     /* Insert at beginning */
     if (pos == 1) {
         newNode->next = first;
@@ -29,16 +33,12 @@ node *insertAtPosition(node *first, int value, int pos) {
         return newNode;
     }
 
-   
 
     for (i = 1; i < pos - 1 && temp != NULL; i++) {
         temp = temp->next;
     }
 
-    if (temp == NULL) {
-        printf("Invalid position\n");
-        return first;
-    }
+    
 
     newNode->next = temp->next;
     // if (temp->next != NULL)
